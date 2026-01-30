@@ -32,7 +32,7 @@ resource "aws_security_group" "etl_sg" {
 # RDS PostgreSQL
 # -------------------------------
 resource "aws_db_instance" "etl_db" {
-  identifier        = "etl-postgres-db"
+  identifier        = "etl-postgres-db-${var.env}"
   engine            = "postgres"
   engine_version    = "14.15"
   instance_class    = "db.t3.small"
