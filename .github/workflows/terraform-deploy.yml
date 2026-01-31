@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     env :
       AWS_REGION: ap-south-1
-      TF_VAR_env: github
+      TF_VAR_env: dev
+      TF_VAR_db_name: etl_db
+      TF_VAR_db_master_user: $ {{ secrets.DB_MASTER_USER }}
+      TF_VAR_db_master_password: $ {{ secrets.DB_MASTER_PASSWORD }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
